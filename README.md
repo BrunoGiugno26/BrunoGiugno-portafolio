@@ -14,9 +14,9 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 [![GitHub Stars](https://img.shields.io/github/stars/adeelhashmi/portfolio-template?style=for-the-badge)](https://github.com/adeelhashmi/portfolio-template/stargazers)
 
-[**🌟 Live Demo**](https://adeelhashmi.dev) • [**📖 Documentation**](https://github.com/adeelhashmi/portfolio-template/wiki) • [**🐛 Report Bug**](https://github.com/adeelhashmi/portfolio-template/issues) • [**✨ Request Feature**](https://github.com/adeelhashmi/portfolio-template/issues)
+[**🌟 Live Demo**](https://nextjs-tailwind-portfolio-template.vercel.app/) • [**📖 Documentation**](https://github.com/adeelhashmi/portfolio-template/wiki) • [**🐛 Report Bug**](https://github.com/adeelhashmi/portfolio-template/issues) • [**✨ Request Feature**](https://github.com/adeelhashmi/portfolio-template/issues)
 
-![Portfolio Preview](https://github.com/adeelhashmi/portfolio-template/raw/main/public/preview.gif)
+![Portfolio Preview](/public/preview.gif)
 
 </div>
 
