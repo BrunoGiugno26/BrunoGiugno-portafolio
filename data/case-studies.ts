@@ -47,7 +47,7 @@ export const caseStudies: CaseStudyData[] = [
         tags: ["Next.js 14", "TypeScript", "Prisma", "Stripe", "Clerk", "Tailwind CSS"],
         liveUrl: "https://rents-cars.vercel.app/",
         githubUrlFront: "https://github.com/BrunoGiugno26/Rents-Cars",
-        githubUrlBack: "TU_LINK_REPO_BACKEND_RESERVAS",
+        githubUrlBack: "https://github.com/BrunoGiugno26/Rents-Cars",
         imageUrl: "https://ik.imagekit.io/fefgntjox/Rents-Cars/untitled-0.png?updatedAt=1758552652106",
     },
     {

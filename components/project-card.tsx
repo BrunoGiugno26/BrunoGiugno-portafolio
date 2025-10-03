@@ -62,14 +62,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       className="relative group"
     >
       {/* Subtle Glow Effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 via-white-500/20 to-blue-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500/20 via-white-500/20 to-yellow-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
 
       <Card className="relative h-full p-8 transition-all duration-200 border bg-card hover:bg-card/80 border-border hover:border-border/60 rounded-3xl group-hover:shadow-xl group-hover:shadow-black/5 dark:group-hover:shadow-white/5">
         
         {/* Project Icon/Image with Glow */}
         <div className="flex items-start justify-between mb-6">
           <div className="relative">
-            <div className="absolute inset-0 transition-opacity duration-200 bg-gradient-to-r from-red-100 to-blue-600 rounded-2xl blur-md opacity-30 group-hover:opacity-50" />
+            <div className="absolute inset-0 transition-opacity duration-200 bg-gradient-to-r from-yellow-100 to-yellow-600 rounded-2xl blur-md opacity-30 group-hover:opacity-50" />
             
             {/* LÓGICA DE RENDERIZADO DE IMAGEN/ICONO */}
             <div className="relative flex items-center justify-center w-16 h-16 overflow-hidden text-2xl border bg-muted rounded-2xl border-border/50">
@@ -92,7 +92,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {project.featured && (
-            <Badge className="text-yellow-500 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 dark:text-yellow-700 border-yellow-500/30">
+            <Badge className="text-yellow-500 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 dark:text-yellow-300 border-yellow-500/30">
               ⭐ Presentado
             </Badge>
           )}
@@ -119,7 +119,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <div className="text-blue-600 dark:text-blue-400">
                 {project.metrics.performance}
               </div>
-              <div className="text-red-600 dark:text-red-400">
+              <div className="text-orange-600 dark:text-orange-400">
                 {project.metrics.impact}
               </div>
             </div>

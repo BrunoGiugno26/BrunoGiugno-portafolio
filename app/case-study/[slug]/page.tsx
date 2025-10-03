@@ -106,12 +106,12 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
 
                 {/* Decisiones de Stack (El POR QUÉ) */}
                 <section className="space-y-6">
-                    <h2 className="pl-3 text-2xl font-bold border-l-4 border-blue-500">Decisiones y Arquitectura Técnica</h2>
+                    <h2 className="pl-3 text-2xl font-bold border-l-4 border-red-500">Decisiones y Arquitectura Técnica</h2>
                     <div className="space-y-6">
                         {study.stackDecisions.map((decision, index) => (
                             <div key={index}>
                                 <h3 className="flex items-center gap-2 text-xl font-semibold text-foreground">
-                                    <Shield className="w-5 h-5 text-blue-500"/>
+                                    <Shield className="w-5 h-5 text-red-500"/>
                                     {decision.title}
                                 </h3>
                                 <p className="mt-1 text-muted-foreground">{decision.body}</p>
@@ -122,11 +122,11 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 
                 {/* Desafíos Resueltos (Prueba de Habilidad) */}
                 <section className="space-y-6">
-                    <h2 className="pl-3 text-2xl font-bold border-l-4 border-yellow-500">Desafíos Clave Resueltos</h2>
+                    <h2 className="pl-3 text-2xl font-bold border-l-4 border-green-500">Desafíos Clave Resueltos</h2>
                     <ul className="space-y-2 list-disc list-inside text-muted-foreground">
                         {study.challenges.map((challenge, index) => (
                             <li key={index} className="text-foreground/90 text-md">
-                                <span className="pr-1 font-medium text-yellow-600/90">•</span>
+                                <span className="pr-1 font-medium text-green-600/90">•</span>
                                 {challenge}
                             </li>
                         ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SkillsSection } from "@/components/skills-section";
 import { ProjectCard } from "@/components/project-card";
+import { Menu, X } from "lucide-react";
 import {
   Github,
   Linkedin,
@@ -17,7 +19,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
-import Image from "next/image"; // Importación necesaria para mostrar imágenes
+import Image from "next/image";
 
 // =================================================================
 // 1. DATA PERSONALIZADA
@@ -28,7 +30,6 @@ const workExperience = [
     company: "Giugno distribuciones (Comercio de belleza)",
     role: "Administrativo | Gestión de Inventario",
     duration: "Nov 2019 - Presente",
-    // CORREGIDO: Usamos 'logo' para el código, pero es la URL de la imagen.
     logo: "https://ik.imagekit.io/fefgntjox/Logo%20GiugnoDistribuciones.jpeg?updatedAt=1749432834776",
     description:
       "Encargado del control de stock, balances y reposición de mercancía, desarrollando habilidades clave de organización y atención al detalle aplicables al desarrollo de software.",
@@ -50,7 +51,6 @@ const projects = [
       "Stripe",
       "Clerk",
     ],
-    // CORREGIDO: Usamos imageUrl para la imagen del proyecto
     imageUrl:
       "https://ik.imagekit.io/fefgntjox/Rents-Cars/untitled-0.png?updatedAt=1758552652106",
     featured: true,
@@ -90,50 +90,118 @@ const projects = [
   },
 ];
 
+const navigation = [
+  { name: "Proyectos", href: "#projects" },
+  { name: "Habilidades", href: "#skills" },
+  { name: "Acerca de Mí", href: "#about" },
+  { name: "Contacto", href: "#contact" },
+];
+
+// =================================================================
+// 2. COMPONENTE HOME COMPLETO
 // =================================================================
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleCloseMenu = () => setIsOpen(false);
+
   return (
     <div className="min-h-screen transition-colors duration-300 bg-background text-foreground">
-      {/* Glass Navigation - Título actualizado */}
+      {/* Glass Navigation - BARRA FUNCIONAL Y RESPONSIVA */}
       <nav className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-xl border-border/50">
-        <div className="max-w-2xl px-6 py-4 mx-auto">
-          <div className="flex items-center justify-between">
+        <div className="max-w-6xl px-6 py-4 mx-auto">
+          {" "}
+          {/* AUMENTADO EL ANCHO A max-w-6xl */}
+          <div className="flex items-center justify-between h-16">
+            {/* LOGO Y TÍTULO (BLOQUE IZQUIERDO) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-xl font-bold text-transparent bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text"
+              className="z-10 flex items-center h-full gap-2"
             >
-              BGProyectos
+              <Link
+                href="/"
+                className="flex items-center gap-3"
+                onClick={handleCloseMenu}
+              >
+                {/* 1. IMAGEN DEL LOGO */}
+                <Image
+                  src={"/icon.png"}
+                  alt="Logo BGProyectos"
+                  width={64}
+                  height={64}
+                  className="flex-shrink-0 object-contain rounded-full"
+                />
+                {/* 2. TEXTO DEL TÍTULO (Oculto en móvil) */}
+                <span className="hidden text-xl font-bold text-transparent bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text whitespace-nowrap sm:inline-block">
+                  BGProyectos
+                </span>
+              </Link>
             </motion.div>
 
-            <div className="flex items-center gap-6">
-              <a
-                href="#projects"
-                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-              >
-                Proyectos
-              </a>
-              <a
-                href="#skills"
-                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-              >
-                Habilidades
-              </a>
-              <a
-                href="#contact"
-                className="px-4 py-2 text-sm transition-all duration-200 border rounded-full bg-muted/50 hover:bg-muted text-foreground border-border/50 hover:border-border focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-              >
-                Contacto
-              </a>
+            {/* ENLACES CENTRALES (BLOQUE CENTRADO EN DESKTOP) */}
+            <div className="absolute inset-x-0 justify-center hidden h-16 pointer-events-none sm:flex">
+              <div className="flex items-center gap-6 pointer-events-auto">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* BOTONES DE TEMA Y MENÚ MÓVIL (BLOQUE DERECHO) */}
+            <div className="z-10 flex items-center gap-6">
               <ThemeToggle />
+
+              {/* BOTÓN DE MENÚ MÓVIL (Visible solo en móvil) */}
+              <div className="flex items-center sm:hidden">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="text-foreground hover:text-primary"
+                >
+                  {isOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
+          {/* MENÚ DESPLEGABLE MÓVIL */}
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="absolute left-0 z-40 w-full border-t shadow-lg bg-background/95 backdrop-blur-md sm:hidden"
+            >
+              <div className="px-4 py-3 space-y-1">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-base font-medium transition-colors rounded-md text-foreground hover:text-primary hover:bg-muted"
+                    onClick={handleCloseMenu}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
 
-      {/* Margen superior aumentado a pt-32 para más espacio */}
-      <main className="pt-16">
+      {/* Margen superior ajustado */}
+      <main className="pt-24 sm:pt-28">
         {/* Hero Section */}
         <section className="relative flex items-center justify-center min-h-screen overflow-hidden">
           {/* Animated Background Orbs */}
@@ -179,14 +247,14 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="flex justify-center"
               >
-                <Badge className="px-4 py-2 text-green-600 transition-all duration-300 border bg-green-500/10 hover:bg-green-500/20 border-green-500/20 dark:text-green-400">
+                <Badge className="px-4 py-2 text-yellow-800 transition-all duration-300 border bg-yellow-500/10 hover:bg-yellow-500/20 border-yellow-500/20 dark:text-orange-400">
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{
                       duration: 2,
                       repeat: Number.POSITIVE_INFINITY,
                     }}
-                    className="w-2 h-2 mr-2 bg-green-500 rounded-full"
+                    className="w-2 h-2 mr-2 bg-orange-400 rounded-full"
                   />
                   Abierto a oportunidades Full Stack y Frontend
                 </Badge>
@@ -211,7 +279,7 @@ export default function Home() {
                       }}
                       className="absolute inset-0 rounded-full opacity-75 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 blur-sm"
                     />
-                    <div className="relative flex items-center justify-center overflow-hidden text-2xl font-bold border rounded-full w-28 h-28 bg-gradient-to-br from-blue-400 to-purple-800 border-border/20">
+                    <div className="relative flex items-center justify-center overflow-hidden text-2xl font-bold border rounded-full w-28 h-28 bg-gradient-to-br from-orange-400 to-orange-800 border-border/20">
                       <Image
                         src={
                           "https://ik.imagekit.io/fefgntjox/Foto%20CV.jpg?updatedAt=1759363118263"
@@ -224,19 +292,18 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="text-left">
-                    <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text">
+                    <h1 className="text-6xl font-bold text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text">
                       Bruno Giugno
                     </h1>
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ delay: 0.8, duration: 1 }}
-                      className="h-1 mt-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-600"
+                      className="h-1 mt-2 rounded-full bg-gradient-to-r from-yellow-700 to-yellow-900"
                     />
                   </div>
                 </motion.div>
 
-                {/* Descripcion Hero - Adaptado a Full Stack Junior */}
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -249,18 +316,17 @@ export default function Home() {
                   </span>{" "}
                   con un fuerte enfoque en Frontend. Transformo requisitos
                   complejos en experiencias de usuario intuitivas con{" "}
-                  <span className="text-blue-500">React</span>,
+                  <span className="text-yellow-600">React</span>,
                   <span className="px-2 py-1 rounded text-foreground bg-muted">
                     Next.js
                   </span>
-                  , y <span className="text-blue-600">TypeScript</span>.
+                  , y <span className="text-yellow-600">TypeScript</span>.
                   <br />
                   <span className="block mt-2 text-sm text-muted-foreground/70">
                     • Proyectos Full Stack Sólidos • Abierto a nuevas
                     oportunidades
                   </span>
                 </motion.p>
-
 
                 {/* CTA Buttons */}
                 <motion.div
@@ -365,7 +431,9 @@ export default function Home() {
             className="space-y-4"
             id="about"
           >
-            <h2 className="text-2xl font-bold">Acerca de Mí</h2>
+            <h2 className="text-2xl font-bold text-center border-r bg-gradient-to-r from-yellow-600 to-yellow-800">
+              Acerca de Mí
+            </h2>
             <div className="space-y-4 leading-relaxed text-muted-foreground">
               <p>
                 Soy un Desarrollador Full Stack Junior con una pasión marcada
@@ -537,7 +605,6 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="pt-8 space-y-6 border-t border-border/50"
           >
-
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <div className="flex items-center gap-4">
                 {[
@@ -581,8 +648,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* AnalyticsBadge o similar, mantenido del template */}
-              {/* <AnalyticsBadge /> */}
+              {/* Eliminamos el AnalyticsBadge */}
             </div>
 
             <div className="text-sm text-center text-muted-foreground/70">
@@ -592,6 +658,7 @@ export default function Home() {
           </motion.footer>
         </div>
       </main>
+
     </div>
   );
 }

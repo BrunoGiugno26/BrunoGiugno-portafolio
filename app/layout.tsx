@@ -1,22 +1,22 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { WhatsAppChat } from "@/components/whatsapp-chat";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-})
+});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   // --- Títulos y Descripción Principales (Lo que ve Google) ---
@@ -25,7 +25,12 @@ export const metadata: Metadata = {
     template: "%s | Bruno Giugno Portfolio",
   },
   description:
-    "Desarrollador Full Stack especializado en Next.js, React, y TypeScript. Experiencia en la construcción de sistemas transaccionales seguros (Stripe, Prisma) y gestión de datos SQL.",
+  "Desarrollador Full Stack especializado en Next.js, React, y TypeScript. Experiencia en la construcción de sistemas transaccionales seguros (Stripe, Prisma) y gestión de datos SQL.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   
   // --- Palabras Clave (SEO) ---
   keywords: [
@@ -38,7 +43,7 @@ export const metadata: Metadata = {
     "PostgreSQL",
     "Tailwind CSS",
   ],
-  
+
   // --- Autor y Creador ---
   authors: [{ name: "Bruno Giugno" }],
   creator: "Bruno Giugno",
@@ -53,7 +58,7 @@ export const metadata: Metadata = {
       "Desarrollador Full Stack con Next.js, Prisma y experiencia en sistemas de reservas y e-commerce. ¡Mira mis proyectos!",
     siteName: "Bruno Giugno Portfolio",
   },
-  
+
   // --- Twitter/X Card (Para compartir en Twitter/X) ---
   twitter: {
     card: "summary_large_image",
@@ -61,7 +66,7 @@ export const metadata: Metadata = {
     description:
       "Desarrollador Full Stack con Next.js, Prisma y experiencia en sistemas de reservas y e-commerce. ¡Mira mis proyectos!",
   },
-  
+
   // --- Configuración de Idioma y Robots ---
   robots: {
     index: true,
@@ -74,17 +79,19 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <WhatsAppChat />
@@ -92,5 +99,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
