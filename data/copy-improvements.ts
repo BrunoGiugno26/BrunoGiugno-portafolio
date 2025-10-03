@@ -2,31 +2,36 @@
 
 export const copyImprovements = {
   hero: {
-    before: "Hi, I'm Adeel Hashmi 👋",
-    after: "Senior Frontend Engineer • React Specialist • EU Ready",
+    // Título Principal para Bruno Giugno
+    before: "Titular inicial genérico",
+    after: "Desarrollador Full Stack | Next.js & TypeScript",
 
-    beforeSubtitle: "SWE II Frontend Developer specializing in React.js, Next.js, TypeScript...",
+    // Subtítulo (Define el valor de tu perfil)
+    beforeSubtitle: "Descripción inicial sin foco",
     afterSubtitle:
-      "I build scalable web applications that drive business growth. 4+ years crafting pixel-perfect experiences for 50+ projects. Ready to relocate to Germany/EU.",
+      "Transformo requisitos complejos en experiencias de usuario intuitivas. Foco en sistemas transaccionales seguros (Stripe, Prisma). Comprometido con el aprendizaje continuo.",
   },
 
   cta: {
-    before: "View My Work",
-    after: "See My Impact", // More results-focused
+    // Botones de llamada a la acción
+    before: "Ver Mi Trabajo",
+    after: "Ver Proyectos Destacados",
 
-    beforeContact: "Contact Me",
-    afterContact: "Let's Build Something Amazing", // More engaging
+    beforeContact: "Contactar Ahora",
+    afterContact: "Hablemos de tu Proyecto", 
   },
 
   projects: {
-    before: "Interactive dashboard with real-time maps...",
+    // Ejemplo de cómo describir el proyecto BrunoCars
+    before: "Dashboard interactivo con mapas en tiempo real...",
     after:
-      "Increased logistics efficiency by 40% with real-time tracking dashboard serving 10K+ daily users. Built with React, TypeScript, and WebSocket integration.",
+      "Motor de reservas Full Stack con pagos asíncronos (Stripe Webhooks). Alto foco en la robustez de datos con Prisma y PostgreSQL para la integridad transaccional.",
   },
 
   about: {
-    before: "I'm a frontend developer with 4+ years experience...",
+    // Filosofía Junior/Bootcamp/Autodidacta
+    before: "Soy un desarrollador con más de 4 años de experiencia...",
     after:
-      "I transform complex business requirements into intuitive user experiences. My code powers applications used by 100K+ users daily across logistics, government, and SaaS platforms.",
+      "Mi código potencia la creación de sistemas intuitivos. Adquirí un conocimiento sólido en el bootcamp de Henry, complementándolo con el dominio **autodidacta** de servicios clave como Prisma, Clerk y Stripe.",
   },
 }

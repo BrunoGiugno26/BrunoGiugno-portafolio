@@ -1,33 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircle, X, Send } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, X, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function WhatsAppChat() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Show button after page loads
+  // Muestra el botón después de que la página se carga (2 segundos)
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 2000)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setIsVisible(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  const whatsappNumber = "923001234567" // Replace with your actual WhatsApp number
-  const defaultMessage = "Hi Adeel! I'm interested in discussing a project opportunity with you."
+  // REEMPLAZA CON TU NÚMERO REAL
+  const whatsappNumber = "5492612445460"; // Usé tu número de contacto de Argentina. Formato: CódigoPaís + CódigoCiudad + Número
+  const defaultMessage =
+    "¡Hola Bruno! Vi tu portafolio y estoy interesado en discutir una oportunidad de proyecto.";
 
   const openWhatsApp = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`
-    window.open(url, "_blank")
-  }
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      defaultMessage
+    )}`;
+    window.open(url, "_blank");
+  };
 
-  if (!isVisible) return null
+  if (!isVisible) return null;
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Fondo Oscuro (Backdrop) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -35,13 +39,13 @@ export function WhatsAppChat() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
           />
         )}
       </AnimatePresence>
 
-      {/* Chat Widget */}
-      <div className="fixed bottom-6 right-6 z-50">
+      {/* Widget de Chat */}
+      <div className="fixed z-50 bottom-6 right-6">
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -51,68 +55,75 @@ export function WhatsAppChat() {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="mb-4 w-80 max-w-[calc(100vw-3rem)]"
             >
-              <div className="bg-background/95 dark:bg-background/90 backdrop-blur-xl border border-border/20 rounded-2xl shadow-2xl overflow-hidden">
-                {/* Header */}
+              <div className="overflow-hidden border shadow-2xl bg-background/95 dark:bg-background/90 backdrop-blur-xl border-border/20 rounded-2xl">
+                {/* Encabezado */}
                 <div className="bg-[#25D366] p-4 text-white">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold">
-                        AH
+                      <div className="flex items-center justify-center w-10 h-10 text-lg font-bold rounded-full bg-white/20">
+                        BG
                       </div>
                       <div>
-                        <h3 className="font-semibold">Adeel Hashmi</h3>
-                        <p className="text-xs text-white/80">Senior Frontend Engineer</p>
+                        <h3 className="font-semibold">Bruno Giugno</h3>
+                        <p className="text-xs text-white/80">
+                          Desarrollador Full Stack & Frontend
+                        </p>
                       </div>
                     </div>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={() => setIsOpen(false)}
-                      className="text-white hover:bg-white/20 h-8 w-8"
+                      className="w-8 h-8 text-white hover:bg-white/20"
                     >
-                      <X className="h-4 w-4" />
+                      <X className="w-4 h-4" />
                     </Button>
                   </div>
                 </div>
 
-                {/* Chat Content */}
+                {/* Contenido del Chat */}
                 <div className="p-4 space-y-4">
                   <div className="flex gap-2">
                     <div className="w-8 h-8 bg-[#25D366] rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                      AH
+                      BG
                     </div>
                     <div className="bg-muted/50 rounded-2xl rounded-tl-md p-3 max-w-[80%]">
                       <p className="text-sm text-foreground">
-                        👋 Hi there! I'm available to discuss your project needs.
+                        👋 ¡Hola! Estoy disponible para discutir tus necesidades
+                        de proyecto.
                       </p>
-                      <p className="text-xs text-muted-foreground mt-1">Usually responds within an hour</p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Normalmente respondo en menos de una hora.
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex gap-2">
                     <div className="w-8 h-8 bg-[#25D366] rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                      AH
+                      BG
                     </div>
                     <div className="bg-muted/50 rounded-2xl rounded-tl-md p-3 max-w-[80%]">
-                      <p className="text-sm text-foreground">Let's chat about:</p>
-                      <ul className="text-sm text-muted-foreground mt-2 space-y-1">
-                        <li>• Frontend development projects</li>
-                        <li>• React/Next.js applications</li>
-                        <li>• Remote opportunities</li>
-                        <li>• EU relocation positions</li>
+                      <p className="text-sm text-foreground">
+                        Hablemos sobre:
+                      </p>
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                        <li>• Desarrollo Full Stack y Frontend</li>
+                        <li>• Proyectos con Next.js/React y TypeScript</li>
+                        <li>• Sistemas de reservas o E-commerce</li>
+                        <li>• Oportunidades de empleo remoto</li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* Botón CTA */}
                 <div className="p-4 border-t border-border/20">
                   <Button
                     onClick={openWhatsApp}
                     className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-medium py-3 rounded-xl transition-all duration-300"
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Start WhatsApp Chat
+                    Iniciar Chat de WhatsApp
                   </Button>
                 </div>
               </div>
@@ -120,7 +131,7 @@ export function WhatsAppChat() {
           )}
         </AnimatePresence>
 
-        {/* Chat Button */}
+        {/* Botón de Chat (el icono circular) */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -130,8 +141,8 @@ export function WhatsAppChat() {
             onClick={() => setIsOpen(!isOpen)}
             className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-2xl hover:shadow-[#25D366]/25 transition-all duration-300 group relative overflow-hidden"
           >
-            {/* Ripple Effect */}
-            <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500" />
+            {/* Efecto Ripple */}
+            <div className="absolute inset-0 transition-transform duration-500 scale-0 rounded-full bg-white/20 group-hover:scale-100" />
 
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -142,7 +153,7 @@ export function WhatsAppChat() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="h-6 w-6" />
+                  <X className="w-6 h-6" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -152,16 +163,16 @@ export function WhatsAppChat() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <MessageCircle className="h-6 w-6" />
+                  <MessageCircle className="w-6 h-6" />
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Notification Dot */}
+            {/* Punto de Notificación */}
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
+              className="absolute w-4 h-4 bg-red-500 border-2 border-white rounded-full -top-1 -right-1"
             />
           </Button>
         </motion.div>
@@ -174,13 +185,17 @@ export function WhatsAppChat() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
               transition={{ delay: 1 }}
-              className="absolute right-16 top-1/2 -translate-y-1/2 hidden md:block"
+              className="absolute hidden -translate-y-1/2 right-16 top-1/2 md:block"
             >
-              <div className="bg-background/95 backdrop-blur-xl border border-border/20 rounded-lg px-3 py-2 shadow-lg whitespace-nowrap">
-                <p className="text-sm font-medium text-foreground">Need help with a project?</p>
-                <p className="text-xs text-muted-foreground">Click to chat on WhatsApp</p>
-                {/* Arrow */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full">
+              <div className="px-3 py-2 border rounded-lg shadow-lg bg-background/95 backdrop-blur-xl border-border/20 whitespace-nowrap">
+                <p className="text-sm font-medium text-foreground">
+                  ¿Necesitas ayuda con un proyecto?
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Clic para chatear por WhatsApp
+                </p>
+                {/* Flecha */}
+                <div className="absolute right-0 translate-x-full -translate-y-1/2 top-1/2">
                   <div className="w-0 h-0 border-l-[6px] border-l-border/20 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent" />
                 </div>
               </div>
@@ -189,5 +204,5 @@ export function WhatsAppChat() {
         </AnimatePresence>
       </div>
     </>
-  )
+  );
 }

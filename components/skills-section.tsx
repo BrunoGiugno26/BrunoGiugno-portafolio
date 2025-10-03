@@ -1,123 +1,43 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
+import { motion, Variants } from "framer-motion"; // Asegúrate de que Variants esté importado aquí
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
 const skills = [
-  {
-    name: "React.js",
-    icon: "⚛️",
-    experience: "4+ years",
-    category: "Frontend",
-    proficiency: 95,
-    color: "from-blue-400 to-cyan-500",
-  },
-  {
-    name: "Next.js",
-    icon: "▲",
-    experience: "3+ years",
-    category: "Framework",
-    proficiency: 90,
-    color: "from-gray-700 to-gray-900 dark:from-white dark:to-gray-300",
-  },
-  {
-    name: "TypeScript",
-    icon: "📘",
-    experience: "4+ years",
-    category: "Language",
-    proficiency: 88,
-    color: "from-blue-600 to-blue-800",
-  },
-  {
-    name: "Redux Toolkit",
-    icon: "🔄",
-    experience: "3+ years",
-    category: "State",
-    proficiency: 85,
-    color: "from-purple-500 to-purple-700",
-  },
-  {
-    name: "Zustand",
-    icon: "🐻",
-    experience: "2+ years",
-    category: "State",
-    proficiency: 82,
-    color: "from-orange-400 to-orange-600",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "🎨",
-    experience: "4+ years",
-    category: "Styling",
-    proficiency: 92,
-    color: "from-cyan-400 to-cyan-600",
-  },
-  {
-    name: "Framer Motion",
-    icon: "🎬",
-    experience: "2+ years",
-    category: "Animation",
-    proficiency: 80,
-    color: "from-pink-500 to-rose-500",
-  },
-  {
-    name: "REST APIs",
-    icon: "🌐",
-    experience: "4+ years",
-    category: "Integration",
-    proficiency: 90,
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    name: "Leaflet.js",
-    icon: "🗺️",
-    experience: "2+ years",
-    category: "Maps",
-    proficiency: 75,
-    color: "from-green-600 to-green-800",
-  },
-  {
-    name: "Canvas API",
-    icon: "🎯",
-    experience: "1+ years",
-    category: "Graphics",
-    proficiency: 70,
-    color: "from-red-500 to-red-700",
-  },
-  {
-    name: "Git",
-    icon: "📝",
-    experience: "4+ years",
-    category: "Tools",
-    proficiency: 88,
-    color: "from-gray-600 to-gray-800",
-  },
-  {
-    name: "CI/CD",
-    icon: "🚀",
-    experience: "3+ years",
-    category: "DevOps",
-    proficiency: 78,
-    color: "from-indigo-500 to-indigo-700",
-  },
-]
+  // --- Stack Principal (Bootcamp + Autodidacta) ---
+  { name: "Next.js", icon: "▲", experience: "Bootcamp & Proyectos", category: "Framework", proficiency: 15, color: "from-gray-700 to-gray-900 dark:from-white dark:to-gray-300" },
+  { name: "React.js", icon: "⚛️", experience: "Bootcamp & Proyectos", category: "Frontend", proficiency: 18, color: "from-blue-400 to-cyan-500" },
+  { name: "TypeScript", icon: "📘", experience: "Bootcamp & Proyectos", category: "Language", proficiency: 17, color: "from-blue-600 to-blue-800" },
+  { name: "Javascript", icon: "📘", experience: "Bootcamp & Proyectos", category: "Styling", proficiency: 20, color: "from-cyan-400 to-cyan-600" },
+  { name: "Tailwind CSS", icon: "🎨", experience: "Bootcamp & Proyectos", category: "Styling", proficiency: 35, color: "from-cyan-400 to-cyan-600" },
+  { name: "Bootstrap", icon: "🎨", experience: "Bootcamp & Proyectos", category: "Styling", proficiency: 22, color: "from-cyan-400 to-cyan-600" },
+
+  // --- Integraciones Autodidactas (Tu Fortaleza) ---
+  { name: "Prisma / Neon (PostgreSQL)", icon: "🐘", experience: "Autodidacta", category: "Database", proficiency: 25, color: "from-blue-700 to-blue-900" },
+  { name: "Stripe / Webhooks", icon: "💳", experience: "Autodidacta", category: "Integration", proficiency: 28, color: "from-purple-500 to-purple-700" },
+  { name: "Clerk / Auth0", icon: "🔐", experience: "Autodidacta", category: "Integration", proficiency: 35, color: "from-orange-400 to-orange-600" },
+  { name: "Shadcn / ui", icon: "💅", experience: "Autodidacta", category: "Styling", proficiency: 34, color: "from-gray-300 to-gray-500" },
+  { name: "Uploadthing / ImageKit", icon: "☁️", experience: "Autodidacta", category: "Integration", proficiency: 50, color: "from-pink-500 to-rose-500" },
+
+  // --- Herramientas de Base ---
+  { name: "Node.js / Express", icon: "🟢", experience: "Bootcamp", category: "Backend", proficiency: 40, color: "from-green-500 to-green-700" },
+  { name: "Git / GitHub", icon: "📝", experience: "Bootcamp & Autodidacta", category: "Tools", proficiency: 65, color: "from-gray-600 to-gray-800" },
+];
 
 const categories = [
   "All",
   "Frontend",
   "Framework",
   "Language",
-  "State",
   "Styling",
-  "Animation",
+  "Database",
   "Integration",
-  "Maps",
-  "Graphics",
+  "Backend",
   "Tools",
-  "DevOps",
-]
+];
+
 
 export function SkillsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -125,7 +45,8 @@ export function SkillsSection() {
   const filteredSkills =
     selectedCategory === "All" ? skills : skills.filter((skill) => skill.category === selectedCategory)
 
-  const containerVariants = {
+  // CORRECCIÓN: Tipado explícito de las variantes
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -135,7 +56,8 @@ export function SkillsSection() {
     },
   }
 
-  const itemVariants = {
+  // CORRECCIÓN: Tipado explícito de las variantes
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20, scale: 0.9 },
     visible: {
       opacity: 1,
@@ -157,15 +79,16 @@ export function SkillsSection() {
       className="space-y-8"
       aria-labelledby="skills-heading"
     >
-      <div className="text-center space-y-4">
+      <div className="space-y-4 text-center">
         <h2
           id="skills-heading"
-          className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+          className="text-3xl font-bold text-transparent bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text"
         >
           Skills & Technologies
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Technologies I've mastered through years of hands-on experience building production applications
+        {/* CORRECCIÓN: Descripción de la sección enfocada en Autodidacta */}
+        <p className="max-w-2xl mx-auto text-muted-foreground">
+          Tecnologías que manejo. Habilidades como **Prisma, Stripe, y Clerk** fueron adquiridas de forma autodidacta, demostrando mi compromiso con el aprendizaje continuo para proyectos Full Stack.
         </p>
       </div>
 
@@ -198,16 +121,12 @@ export function SkillsSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
       >
         {filteredSkills.map((skill, index) => (
           <motion.div key={skill.name} variants={itemVariants} className="group">
             <Card
-              className="relative p-6 bg-card border border-border rounded-2xl transition-all duration-300 h-full flex flex-col justify-center items-center text-center
-              hover:scale-105 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 
-              hover:bg-card/90 hover:border-border/80
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background
-              transform-gpu will-change-transform cursor-default"
+              className="relative flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border cursor-default bg-card border-border rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 hover:bg-card/90 hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transform-gpu will-change-transform"
               tabIndex={0}
               role="button"
               aria-label={`${skill.name} - ${skill.experience} experience`}
@@ -219,7 +138,7 @@ export function SkillsSection() {
 
               {/* Icon */}
               <div
-                className="text-3xl mb-3 transition-transform duration-300 group-hover:scale-110"
+                className="mb-3 text-3xl transition-transform duration-300 group-hover:scale-110"
                 role="img"
                 aria-label={`${skill.name} icon`}
               >
@@ -227,20 +146,20 @@ export function SkillsSection() {
               </div>
 
               {/* Skill Name */}
-              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-2 leading-tight">
+              <h3 className="mb-2 font-semibold leading-tight transition-colors duration-300 text-foreground group-hover:text-primary">
                 {skill.name}
               </h3>
 
               {/* Experience Badge */}
               <Badge
                 variant="secondary"
-                className="bg-muted/50 text-muted-foreground border-border/30 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300 text-xs"
+                className="text-xs transition-all duration-300 bg-muted/50 text-muted-foreground border-border/30 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/30"
               >
                 {skill.experience}
               </Badge>
 
               {/* Subtle proficiency indicator */}
-              <div className="mt-3 w-full max-w-16 h-1 bg-muted rounded-full overflow-hidden">
+              <div className="w-full h-1 mt-3 overflow-hidden rounded-full max-w-16 bg-muted">
                 <div
                   className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-500 group-hover:shadow-sm`}
                   style={{ width: `${skill.proficiency}%` }}
@@ -251,28 +170,28 @@ export function SkillsSection() {
         ))}
       </motion.div>
 
-      {/* Skills Summary */}
+      {/* Skills Summary - CORREGIDO a tus métricas */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="text-center pt-8"
+        className="pt-8 text-center"
       >
-        <div className="inline-flex items-center gap-6 px-6 py-3 bg-muted/30 border border-border/50 rounded-full">
+        <div className="inline-flex items-center gap-6 px-6 py-3 border rounded-full bg-muted/30 border-border/50">
           <div className="text-sm">
             <span className="font-semibold text-primary">{skills.length}</span>
-            <span className="text-muted-foreground ml-1">Technologies</span>
+            <span className="ml-1 text-muted-foreground">Tecnologías</span>
           </div>
           <div className="w-px h-4 bg-border/30" />
           <div className="text-sm">
-            <span className="font-semibold text-primary">4+</span>
-            <span className="text-muted-foreground ml-1">Years Experience</span>
+            <span className="font-semibold text-primary">6+</span> 
+            <span className="ml-1 text-muted-foreground">Meses de Experiencia</span> 
           </div>
           <div className="w-px h-4 bg-border/30" />
           <div className="text-sm">
-            <span className="font-semibold text-primary">50+</span>
-            <span className="text-muted-foreground ml-1">Projects Built</span>
+            <span className="font-semibold text-primary">2</span> 
+            <span className="ml-1 text-muted-foreground">Proyectos Full Stack</span> 
           </div>
         </div>
       </motion.div>

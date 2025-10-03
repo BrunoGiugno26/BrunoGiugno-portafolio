@@ -19,37 +19,50 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  // --- Títulos y Descripción Principales (Lo que ve Google) ---
   title: {
-    default: "Adeel Hashmi - Senior Frontend Engineer",
-    template: "%s | Adeel Hashmi",
+    default: "Bruno Giugno | Desarrollador Full Stack & Frontend",
+    template: "%s | Bruno Giugno Portfolio",
   },
   description:
-    "Senior Frontend Engineer specializing in React.js, Next.js, TypeScript. 4+ years building scalable applications for 100K+ users. Available for EU relocation.",
+    "Desarrollador Full Stack especializado en Next.js, React, y TypeScript. Experiencia en la construcción de sistemas transaccionales seguros (Stripe, Prisma) y gestión de datos SQL.",
+  
+  // --- Palabras Clave (SEO) ---
   keywords: [
-    "Senior Frontend Engineer",
-    "React.js Expert",
-    "Next.js Developer",
-    "TypeScript Specialist",
-    "EU Relocation",
-    "Remote Developer",
+    "Full Stack Developer",
+    "Frontend Developer",
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Prisma",
+    "PostgreSQL",
+    "Tailwind CSS",
   ],
-  authors: [{ name: "Adeel Hashmi" }],
-  creator: "Adeel Hashmi",
+  
+  // --- Autor y Creador ---
+  authors: [{ name: "Bruno Giugno" }],
+  creator: "Bruno Giugno",
+
+  // --- OpenGraph (Para compartir en LinkedIn y Facebook) ---
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://adeelhashmi.dev",
-    title: "Adeel Hashmi - Senior Frontend Engineer",
+    locale: "es_AR", // Cambiado a Español de Argentina
+    url: "TU_URL_DE_VERCEL", // <<-- REEMPLAZAR ESTO DESPUÉS DEL DEPLOY
+    title: "Bruno Giugno | Full Stack & Frontend Developer",
     description:
-      "Senior Frontend Engineer building scalable applications for 100K+ users. React.js, Next.js, TypeScript expert available for EU relocation.",
-    siteName: "Adeel Hashmi Portfolio",
+      "Desarrollador Full Stack con Next.js, Prisma y experiencia en sistemas de reservas y e-commerce. ¡Mira mis proyectos!",
+    siteName: "Bruno Giugno Portfolio",
   },
+  
+  // --- Twitter/X Card (Para compartir en Twitter/X) ---
   twitter: {
     card: "summary_large_image",
-    title: "Adeel Hashmi - Senior Frontend Engineer",
+    title: "Bruno Giugno | Full Stack & Frontend Developer",
     description:
-      "Senior Frontend Engineer building scalable applications for 100K+ users. React.js, Next.js, TypeScript expert.",
+      "Desarrollador Full Stack con Next.js, Prisma y experiencia en sistemas de reservas y e-commerce. ¡Mira mis proyectos!",
   },
+  
+  // --- Configuración de Idioma y Robots ---
   robots: {
     index: true,
     follow: true,
@@ -61,7 +74,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

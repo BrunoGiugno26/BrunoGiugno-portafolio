@@ -1,171 +1,130 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { SkillsSection } from "@/components/skills-section"
-import { ProjectCard } from "@/components/project-card"
-import { FAQSection } from "@/components/faq-section"
-import { FeedbackSection } from "@/components/feedback-section"
-import { VisitorCount, VisitorCountCompact, AnalyticsBadge } from "@/components/visitor-count"
-import { Github, Linkedin, Mail, Calendar, Download, Globe, ArrowRight, Sparkles } from "lucide-react"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { SkillsSection } from "@/components/skills-section";
+import { ProjectCard } from "@/components/project-card";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Download,
+  Globe,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
+import Image from "next/image"; // Importación necesaria para mostrar imágenes
+
+// =================================================================
+// 1. DATA PERSONALIZADA
+// =================================================================
 
 const workExperience = [
   {
-    company: "Tech Solutions Inc",
-    role: "SWE II - Frontend Developer",
-    duration: "2022 - Present",
-    logo: "💼",
-    description: "Leading frontend development for enterprise applications",
+    company: "Giugno distribuciones (Comercio de belleza)",
+    role: "Administrativo | Gestión de Inventario",
+    duration: "Nov 2019 - Presente",
+    // CORREGIDO: Usamos 'logo' para el código, pero es la URL de la imagen.
+    logo: "https://ik.imagekit.io/fefgntjox/Logo%20GiugnoDistribuciones.jpeg?updatedAt=1749432834776",
+    description:
+      "Encargado del control de stock, balances y reposición de mercancía, desarrollando habilidades clave de organización y atención al detalle aplicables al desarrollo de software.",
   },
-  {
-    company: "Digital Agency",
-    role: "Frontend Developer",
-    duration: "2021 - 2022",
-    logo: "🎨",
-    description: "Built responsive web applications and CMS solutions",
-  },
-  {
-    company: "Government Contractor",
-    role: "Frontend Developer",
-    duration: "2020 - 2021",
-    logo: "🏛️",
-    description: "Developed government portals and public-facing applications",
-  },
-  {
-    company: "Startup Inc",
-    role: "Junior Frontend Developer",
-    duration: "2019 - 2020",
-    logo: "🚀",
-    description: "Built logistics dashboards and data visualization tools",
-  },
-]
+];
 
 const projects = [
   {
     id: "1",
-    slug: "logistics-dashboard",
-    title: "Logistics Dashboard",
-    description: "Reduced delivery times by 35% with real-time tracking dashboard serving 10K+ daily users",
-    tags: ["React.js", "TypeScript", "Leaflet.js", "WebSocket", "Redux Toolkit", "Canvas API"],
-    icon: "📊",
+    slug: "brunocars-reservas-vehiculos",
+    title: "BrunoCars - Alquiler de Vehículos",
+    description:
+      "Plataforma Full Stack con Next.js 14 y Prisma. Destacado: Pagos asíncronos con Stripe Webhooks, autenticación con Clerk y robustez de la base de datos PostgreSQL.",
+    tags: [
+      "Next.js 14",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe",
+      "Clerk",
+    ],
+    // CORREGIDO: Usamos imageUrl para la imagen del proyecto
+    imageUrl:
+      "https://ik.imagekit.io/fefgntjox/Rents-Cars/untitled-0.png?updatedAt=1758552652106",
     featured: true,
-    liveUrl: "https://logistics-demo.example.com",
-    githubUrl: "https://github.com/adeelhashmi/logistics-dashboard",
+    liveUrl: "https://rents-cars.vercel.app/",
+    githubUrl: "https://github.com/BrunoGiugno26/Rents-Cars",
     metrics: {
-      users: "10K+ daily",
-      performance: "60% faster",
-      impact: "€2M+ savings",
+      users: "Transaccional",
+      performance: "UX optimizada",
+      impact: "Alta estabilidad de datos",
     },
   },
   {
     id: "2",
-    slug: "cms-dashboard",
-    title: "CMS Dashboard",
-    description: "Server-side rendered CMS with role-based permissions serving 50K+ content pieces",
-    tags: ["Next.js", "TypeScript", "SSR", "Auth", "Tailwind CSS", "Zustand"],
-    icon: "⚙️",
-    featured: true,
-    liveUrl: "https://cms-demo.example.com",
-    githubUrl: "https://github.com/adeelhashmi/cms-dashboard",
-    metrics: {
-      users: "5K+ editors",
-      performance: "40% faster",
-      impact: "80% efficiency",
-    },
-  },
-  {
-    id: "3",
-    slug: "government-portals",
-    title: "Government Portals",
-    description: "Multiple government portals processing 100K+ applications with 99.9% uptime",
+    slug: "lienzo-culinario-ecommerce",
+    title: "Lienzo Culinario - E-commerce de Comida",
+    description:
+      "Proyecto en equipo. E-commerce desarrollado con Next.js y Nest.js (backend) con gestión de estado global y carrito de compras.",
     tags: [
-      "React.js",
-      "Laravel Integration",
-      "REST APIs",
-      "Forms",
-      "Charts",
-      "Responsive",
-      "Accessibility",
-      "Security",
+      "Next.js",
+      "Nest.js",
+      "React",
+      "Cloudinary",
+      "Tailwind CSS",
+      "PostgreSQL",
     ],
-    icon: "🏛️",
+    imageUrl:
+      "https://ik.imagekit.io/fefgntjox/Rents-Cars/Logo-Lienzo.png?updatedAt=1759367121863",
     featured: true,
-    liveUrl: undefined,
-    githubUrl: undefined,
+    liveUrl: "https://lienzofront.vercel.app/",
+    githubUrl:
+      "https://github.com/lienzoculinariog2/lienzofront/tree/main/front",
     metrics: {
-      users: "100K+ citizens",
-      performance: "50% faster",
-      impact: "99.9% uptime",
+      users: "E-commerce",
+      performance: "Trabajo en Equipo",
+      impact: "Entrega del proyecto en 3 semanas",
     },
   },
-]
+];
 
-const blogPosts = [
-  {
-    title: "Optimizing React Performance: Advanced Techniques",
-    excerpt: "Learn advanced techniques for optimizing React applications, including memoization and code splitting.",
-    date: "Jan 15, 2024",
-    readTime: "8 min read",
-    slug: "optimizing-react-performance",
-  },
-  {
-    title: "Complete Guide to Next.js App Router",
-    excerpt: "Everything you need to know about the new App Router in Next.js 13+, including server components.",
-    date: "Jan 10, 2024",
-    readTime: "12 min read",
-    slug: "nextjs-app-router-guide",
-  },
-]
+// =================================================================
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      {/* Glass Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-        <div className="max-w-2xl mx-auto px-6 py-4">
+    <div className="min-h-screen transition-colors duration-300 bg-background text-foreground">
+      {/* Glass Navigation - Título actualizado */}
+      <nav className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-xl border-border/50">
+        <div className="max-w-2xl px-6 py-4 mx-auto">
           <div className="flex items-center justify-between">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              className="text-xl font-bold text-transparent bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text"
             >
-              AH
+              BGProyectos
             </motion.div>
 
             <div className="flex items-center gap-6">
               <a
                 href="#projects"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                Projects
+                Proyectos
               </a>
               <a
-                href="#faq"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+                href="#skills"
+                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                FAQ
-              </a>
-              <a
-                href="#feedback"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-              >
-                Feedback
-              </a>
-              <a
-                href="#blog"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-              >
-                Blog
+                Habilidades
               </a>
               <a
                 href="#contact"
-                className="px-4 py-2 bg-muted/50 hover:bg-muted text-foreground rounded-full text-sm transition-all duration-200 border border-border/50 hover:border-border focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="px-4 py-2 text-sm transition-all duration-200 border rounded-full bg-muted/50 hover:bg-muted text-foreground border-border/50 hover:border-border focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                Contact
+                Contacto
               </a>
               <ThemeToggle />
             </div>
@@ -173,9 +132,10 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="pt-20">
+      {/* Margen superior aumentado a pt-32 para más espacio */}
+      <main className="pt-16">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section className="relative flex items-center justify-center min-h-screen overflow-hidden">
           {/* Animated Background Orbs */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
@@ -188,7 +148,7 @@ export default function Home() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
-              className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-500/30 to-purple-600/30 dark:from-blue-500/20 dark:to-purple-600/20 rounded-full blur-3xl"
+              className="absolute rounded-full -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-500/30 to-purple-600/30 dark:from-blue-500/20 dark:to-purple-600/20 blur-3xl"
             />
             <motion.div
               animate={{
@@ -201,11 +161,11 @@ export default function Home() {
                 ease: "easeInOut",
                 delay: 2,
               }}
-              className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-green-500/20 to-blue-500/20 dark:from-green-500/10 dark:to-blue-500/10 rounded-full blur-3xl"
+              className="absolute rounded-full -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-green-500/20 to-blue-500/20 dark:from-green-500/10 dark:to-blue-500/10 blur-3xl"
             />
           </div>
 
-          <div className="max-w-2xl mx-auto px-6 relative z-10">
+          <div className="relative z-10 max-w-2xl px-6 mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -219,96 +179,132 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="flex justify-center"
               >
-                <Badge className="px-4 py-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 text-green-600 dark:text-green-400 transition-all duration-300">
+                <Badge className="px-4 py-2 text-green-600 transition-all duration-300 border bg-green-500/10 hover:bg-green-500/20 border-green-500/20 dark:text-green-400">
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                    className="w-2 h-2 bg-green-500 rounded-full mr-2"
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                    }}
+                    className="w-2 h-2 mr-2 bg-green-500 rounded-full"
                   />
-                  Available for hire • Remote & EU Relocation
+                  Abierto a oportunidades Full Stack y Frontend
                 </Badge>
               </motion.div>
 
               {/* Main Hero Content */}
-              <div className="text-center space-y-6">
+              <div className="space-y-6 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                   className="flex items-center justify-center gap-6"
                 >
+                  {/* Avatar Circular y Ajustado */}
                   <div className="relative">
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full blur-sm opacity-75"
+                      transition={{
+                        duration: 20,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "linear",
+                      }}
+                      className="absolute inset-0 rounded-full opacity-75 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 blur-sm"
                     />
-                    <div className="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold border border-border/20">
-                      AH
+                    <div className="relative flex items-center justify-center overflow-hidden text-2xl font-bold border rounded-full w-28 h-28 bg-gradient-to-br from-blue-400 to-purple-800 border-border/20">
+                      <Image
+                        src={
+                          "https://ik.imagekit.io/fefgntjox/Foto%20CV.jpg?updatedAt=1759363118263"
+                        }
+                        alt="Foto de perfil de Bruno Giugno"
+                        width={112} // 112px = w-28, h-28
+                        height={112}
+                        className="object-cover w-full h-full border-2 border-transparent rounded-full"
+                      />
                     </div>
                   </div>
                   <div className="text-left">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
-                      Adeel Hashmi
+                    <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text">
+                      Bruno Giugno
                     </h1>
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ delay: 0.8, duration: 1 }}
-                      className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2"
+                      className="h-1 mt-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-600"
                     />
                   </div>
                 </motion.div>
 
+                {/* Descripcion Hero - Adaptado a Full Stack Junior */}
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-xl text-muted-foreground leading-relaxed max-w-2xl"
+                  className="max-w-2xl text-xl leading-relaxed text-muted-foreground"
                 >
-                  Senior Frontend Engineer crafting <span className="text-foreground font-semibold">pixel-perfect</span>{" "}
-                  experiences with <span className="text-blue-500">React</span>,{" "}
-                  <span className="text-foreground bg-muted px-2 py-1 rounded">Next.js</span>, and{" "}
-                  <span className="text-blue-600">TypeScript</span>.
+                  Soy un{" "}
+                  <span className="font-semibold text-foreground">
+                    Desarrollador Full Stack
+                  </span>{" "}
+                  con un fuerte enfoque en Frontend. Transformo requisitos
+                  complejos en experiencias de usuario intuitivas con{" "}
+                  <span className="text-blue-500">React</span>,
+                  <span className="px-2 py-1 rounded text-foreground bg-muted">
+                    Next.js
+                  </span>
+                  , y <span className="text-blue-600">TypeScript</span>.
                   <br />
-                  <span className="text-sm text-muted-foreground/70 mt-2 block">
-                    4+ years • 50+ projects • Available for EU relocation
+                  <span className="block mt-2 text-sm text-muted-foreground/70">
+                    • Proyectos Full Stack Sólidos • Abierto a nuevas
+                    oportunidades
                   </span>
                 </motion.p>
 
-                {/* Visitor Count in Hero */}
-                <div className="flex justify-center">
-                  <VisitorCountCompact />
-                </div>
 
                 {/* CTA Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                  className="flex flex-col items-center justify-center gap-4 sm:flex-row"
                 >
-                  <Button className="group bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
-                    <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                    Let's Build Something Amazing
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <a
+                    href="mailto:brunogiugno@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="px-8 py-3 font-semibold transition-all duration-300 rounded-full shadow-lg group bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-primary/25 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
+                      <Sparkles className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
+                      Hablemos de tu Proyecto
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </a>
 
                   <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      className="bg-muted/50 hover:bg-muted border border-border/50 hover:border-border px-6 py-3 rounded-full transition-all duration-300 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                    <a
+                      href="/Bruno Giugno - CV - Full Stack Developer.pdf"
+                      download={"Bruno Giugno - CV - Full Stack Developer.pdf"}
                     >
-                      <Download className="w-4 h-4 mr-2" />
-                      Resume
-                    </Button>
+                      <Button
+                        variant="outline"
+                        className="px-6 py-3 transition-all duration-300 border rounded-full bg-muted/50 hover:bg-muted border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Resume
+                      </Button>
+                    </a>
 
                     <Button
                       variant="outline"
                       asChild
-                      className="bg-muted/50 hover:bg-muted border border-border/50 hover:border-border px-6 py-3 rounded-full transition-all duration-300 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                      className="px-6 py-3 transition-all duration-300 border rounded-full bg-muted/50 hover:bg-muted border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                     >
-                      <a href="https://github.com/adeelhashmi" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/BrunoGiugno26"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         GitHub
                       </a>
@@ -324,9 +320,21 @@ export default function Home() {
                   className="flex justify-center gap-4 pt-8"
                 >
                   {[
-                    { icon: Github, href: "https://github.com/adeelhashmi", label: "GitHub" },
-                    { icon: Linkedin, href: "https://linkedin.com/in/adeelhashmi", label: "LinkedIn" },
-                    { icon: Mail, href: "mailto:adeel.hashmi@example.com", label: "Email" },
+                    {
+                      icon: Github,
+                      href: "https://github.com/BrunoGiugno26",
+                      label: "GitHub",
+                    },
+                    {
+                      icon: Linkedin,
+                      href: "https://www.linkedin.com/in/bruno-giugno-0406ba1a5/",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: Mail,
+                      href: "mailto:brunogiugno@gmail.com",
+                      label: "Email",
+                    },
                   ].map(({ icon: Icon, href, label }, index) => (
                     <motion.a
                       key={label}
@@ -335,10 +343,10 @@ export default function Home() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="p-3 bg-muted/50 hover:bg-muted border border-border/50 hover:border-border rounded-2xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                      className="p-3 transition-all duration-300 border bg-muted/50 hover:bg-muted border-border/50 hover:border-border rounded-2xl group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                       aria-label={`Visit my ${label} profile`}
                     >
-                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <Icon className="w-5 h-5 transition-colors text-muted-foreground group-hover:text-foreground" />
                     </motion.a>
                   ))}
                 </motion.div>
@@ -347,62 +355,51 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="max-w-2xl mx-auto px-6 space-y-16">
-          {/* About Section */}
+        <div className="max-w-2xl px-6 mx-auto space-y-16">
+          {/* About Section - Texto de perfil optimizado */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="space-y-4"
+            id="about"
           >
-            <h2 className="text-2xl font-bold">About</h2>
-            <div className="text-muted-foreground space-y-4 leading-relaxed">
+            <h2 className="text-2xl font-bold">Acerca de Mí</h2>
+            <div className="space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                👋 Hi, I'm Adeel — a senior frontend engineer who transforms complex business requirements into
-                intuitive user experiences. My code powers applications used by{" "}
-                <span className="text-foreground font-semibold">100K+ users daily</span> across logistics, government,
-                and SaaS platforms.
+                Soy un Desarrollador Full Stack Junior con una pasión marcada
+                por el Frontend. Mi objetivo principal es transformar requisitos
+                de negocio complejos en experiencias de usuario intuitivas y
+                visualmente atractivas. Me especializo en el ecosistema moderno
+                de JavaScript, dominando tecnologías como **React**,
+                **Next.js**, y **TypeScript**.
               </p>
               <p>
-                I specialize in{" "}
-                <Link
-                  href="#"
-                  className="text-foreground underline hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-                >
-                  React.js
-                </Link>
-                ,{" "}
-                <Link
-                  href="#"
-                  className="text-foreground underline hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-                >
-                  Next.js
-                </Link>
-                ,{" "}
-                <Link
-                  href="#"
-                  className="text-foreground underline hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-                >
-                  TypeScript
-                </Link>
-                , and modern frontend architecture. I focus on performance, scalability, and pixel-perfect
-                implementations.
+                Adquirí un sólido conocimiento Full Stack a través del bootcamp
+                intensivo de Henry, incluyendo el manejo de Express, PostgreSQL
+                y MongoDB. Mi enfoque se centra en la construcción de sistemas
+                transaccionales robustos (como mi proyecto de reservas con
+                Stripe y Prisma), demostrando un fuerte compromiso con la
+                integridad de los datos y la escalabilidad.
               </p>
               <p>
-                Currently open to remote opportunities or relocation to{" "}
-                <Link
-                  href="#"
-                  className="text-foreground underline hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-                >
-                  Germany/EU/UK/Canada
-                </Link>
-                . Let's build something amazing together.
+                Mi trayectoria me ha enseñado a ser autodidacta, proactivo y
+                resiliente, habilidades que aplico a diario para resolver
+                problemas en el desarrollo web. Valoro el éxito basado en la
+                comunicación y la colaboración grupal, considerándolas
+                fundamentales para el éxito de cualquier proyecto de software.
+              </p>
+              <p>
+                Actualmente, busco mi primera oportunidad profesional para
+                crecer en un equipo dinámico. Estoy comprometido a aportar mi
+                energía y dedicación, con la convicción de que con esfuerzo y
+                tiempo se pueden lograr grandes resultados.
               </p>
             </div>
           </motion.section>
 
-          {/* Work Experience */}
+          {/* Work Experience - Corregido a tu experiencia real */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -410,7 +407,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-bold">Work Experience</h2>
+            <h2 className="text-2xl font-bold">Experiencia Laboral</h2>
             <div className="space-y-4">
               {workExperience.map((job, index) => (
                 <motion.div
@@ -421,28 +418,41 @@ export default function Home() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-muted/50 hover:bg-muted border border-border/50 hover:border-border flex items-center justify-center text-xl flex-shrink-0 transition-all duration-300">
-                    <span role="img" aria-label={`${job.company} logo`}>
-                      {job.logo}
-                    </span>
+                  <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 overflow-hidden text-xl transition-all duration-300 border rounded-full bg-muted/50 hover:bg-muted border-border/50 hover:border-border">
+                    {/* IMPLEMENTACIÓN DE LA IMAGEN DE LA EMPRESA */}
+                    <Image
+                      src={job.logo} // Usamos job.logo como la URL
+                      alt={`${job.company} logo`}
+                      width={48} // w-12 h-12 son 48px
+                      height={48}
+                      className="object-cover w-full h-full" // Asegura que el logo llene el círculo
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-foreground">{job.company}</h3>
-                      <span className="text-sm text-muted-foreground flex-shrink-0">{job.duration}</span>
+                      <h3 className="font-semibold text-foreground">
+                        {job.company}
+                      </h3>
+                      <span className="flex-shrink-0 text-sm text-muted-foreground">
+                        {job.duration}
+                      </span>
                     </div>
-                    <p className="text-muted-foreground text-sm">{job.role}</p>
-                    <p className="text-muted-foreground/70 text-sm mt-1">{job.description}</p>
+                    <p className="text-sm text-muted-foreground">{job.role}</p>
+                    <p className="mt-1 text-sm text-muted-foreground/70">
+                      {job.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.section>
 
-          {/* Skills Section */}
-          <SkillsSection />
+          {/* Skills Section - Llenada en components/skills-section.tsx */}
+          <section id="skills">
+            <SkillsSection />
+          </section>
 
-          {/* Projects */}
+          {/* Projects - Corregido con tus proyectos */}
           <motion.section
             id="projects"
             initial={{ opacity: 0, y: 20 }}
@@ -452,74 +462,17 @@ export default function Home() {
             className="space-y-6"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">Featured Projects</h2>
+              <h2 className="text-2xl font-bold">Proyectos Destacados</h2>
               <Link
-                href="/projects"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+                href="#contact"
+                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                View all →
+                Ver más →
               </Link>
             </div>
             <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
               {projects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </motion.section>
-
-          {/* FAQ Section */}
-          <section id="faq">
-            <FAQSection />
-          </section>
-
-          {/* Feedback Section */}
-          <section id="feedback">
-            <FeedbackSection />
-          </section>
-
-          {/* Blog */}
-          <motion.section
-            id="blog"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">Latest Posts</h2>
-              <Link
-                href="/blog"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
-              >
-                View all →
-              </Link>
-            </div>
-            <div className="space-y-4">
-              {blogPosts.map((post, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="block group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-2xl"
-                  >
-                    <Card className="p-6 bg-card hover:bg-card/80 border border-border hover:border-border/60 rounded-2xl transition-all duration-300 group-hover:shadow-lg group-hover:shadow-black/5 dark:group-hover:shadow-white/5">
-                      <h3 className="font-medium text-foreground group-hover:text-primary mb-2 transition-colors duration-200">
-                        {post.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm mb-3">{post.excerpt}</p>
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground/70">
-                        <span>{post.date}</span>
-                        <span>{post.readTime}</span>
-                      </div>
-                    </Card>
-                  </Link>
-                </motion.div>
               ))}
             </div>
           </motion.section>
@@ -533,22 +486,28 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-bold">Ready to Start Your Project?</h2>
+            <h2 className="text-2xl font-bold">
+              ¿Listo para Empezar tu Proyecto?
+            </h2>
             <p className="text-muted-foreground">
-              I'm always open to discussing new opportunities and exciting projects. Let's build something amazing
-              together!
+              Estoy abierto a discutir nuevas oportunidades y proyectos.
+              ¡Hagamos algo increíble juntos!
             </p>
             <div className="flex flex-wrap gap-4">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
                 <Mail className="w-4 h-4 mr-2" />
-                Get In Touch
+                Contáctame
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="bg-muted/50 hover:bg-muted border border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="border bg-muted/50 hover:bg-muted border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                <a href="https://linkedin.com/in/adeelhashmi" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/bruno-giugno-0406ba1a5/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
                 </a>
@@ -556,9 +515,13 @@ export default function Home() {
               <Button
                 variant="outline"
                 asChild
-                className="bg-muted/50 hover:bg-muted border border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="border bg-muted/50 hover:bg-muted border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               >
-                <a href="https://github.com/adeelhashmi" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/BrunoGiugno26"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="w-4 h-4 mr-2" />
                   GitHub
                 </a>
@@ -572,21 +535,32 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="pt-8 border-t border-border/50 space-y-6"
+            className="pt-8 space-y-6 border-t border-border/50"
           >
-            {/* Visitor Count */}
-            <div className="flex justify-center">
-              <VisitorCount />
-            </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <div className="flex items-center gap-4">
                 {[
-                  { icon: Globe, href: "https://adeelhashmi.dev", label: "Website" },
-                  { icon: Github, href: "https://github.com/adeelhashmi", label: "GitHub" },
-                  { icon: Linkedin, href: "https://linkedin.com/in/adeelhashmi", label: "LinkedIn" },
-                  { icon: Mail, href: "mailto:adeel.hashmi@example.com", label: "Email" },
-                  { icon: Calendar, href: "https://cal.com/adeelhashmi", label: "Schedule a call" },
+                  {
+                    icon: Globe,
+                    href: "TU_URL_DE_VERCEL",
+                    label: "Portafolio",
+                  },
+                  {
+                    icon: Github,
+                    href: "https://github.com/BrunoGiugno26",
+                    label: "GitHub",
+                  },
+                  {
+                    icon: Linkedin,
+                    href: "https://www.linkedin.com/in/bruno-giugno-0406ba1a5/",
+                    label: "LinkedIn",
+                  },
+                  {
+                    icon: Mail,
+                    href: "mailto:brunogiugno@gmail.com",
+                    label: "Email",
+                  },
                 ].map(({ icon: Icon, href, label }) => (
                   <Button
                     key={label}
@@ -595,22 +569,29 @@ export default function Home() {
                     asChild
                     className="text-muted-foreground hover:text-foreground focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                    >
                       <Icon className="w-4 h-4" />
                     </a>
                   </Button>
                 ))}
               </div>
 
-              <AnalyticsBadge />
+              {/* AnalyticsBadge o similar, mantenido del template */}
+              {/* <AnalyticsBadge /> */}
             </div>
 
-            <div className="text-center text-sm text-muted-foreground/70">
-              © 2024 Adeel Hashmi. Built with Next.js & Tailwind CSS.
+            <div className="text-sm text-center text-muted-foreground/70">
+              © 2025 Bruno Giugno. Basado en el trabajo de Adeel Hashmi. Built
+              with Next.js & Tailwind CSS.
             </div>
           </motion.footer>
         </div>
       </main>
     </div>
-  )
+  );
 }

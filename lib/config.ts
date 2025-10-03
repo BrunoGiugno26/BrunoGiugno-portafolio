@@ -6,49 +6,49 @@
  */
 
 export const siteConfig = {
-  name: "Adeel Hashmi",
-  initials: "AH",
-  title: "Senior Frontend Engineer",
-  description: "Senior Frontend Engineer crafting pixel-perfect experiences with React, Next.js, and TypeScript.",
-  url: "https://adeelhashmi.dev",
-  ogImage: "https://adeelhashmi.dev/og-image.jpg",
+  // CONFIGURACIÓN PRINCIPAL
+  name: "Bruno Giugno",
+  initials: "BG",
+  title: "Desarrollador Full Stack | Frontend", // Tu rol principal
+  description: "Desarrollador Full Stack con Next.js, React, TypeScript y experiencia en sistemas transaccionales seguros (Stripe, Prisma).",
+  url: "TU_URL_DE_VERCEL", // <<-- IMPORTANTE: Cambia esto después del deploy
+  ogImage: "TU_URL_DE_VERCEL/og-image.jpg",
 
-  // Personal Information
+  // Información Personal (Ajustado para perfil Junior)
   personal: {
-    email: "adeel.hashmi@example.com",
-    location: "Open to Remote & EU Relocation",
-    timezone: "CET/EST",
-    availability: "Available for hire",
-    experience: "4+ years",
-    projectCount: "50+",
+    email: "brunogiugno@gmail.com",
+    location: "Godoy Cruz, Mendoza, Argentina",
+    timezone: "ART (UTC-3)",
+    availability: "Abierto a oportunidades Full Stack y Frontend",
+    experience: "Bootcamp Henry • Proyectos Sólidos", // Experiencia ajustada
+    projectCount: "2 Proyectos Full Stack Completos", // Enfatiza tus proyectos
   },
 
-  // Social Links
+  // Enlaces Sociales
   links: {
-    github: "https://github.com/adeelhashmi",
-    linkedin: "https://linkedin.com/in/adeelhashmi",
-    twitter: "https://twitter.com/adeelhashmi",
-    email: "mailto:adeel.hashmi@example.com",
-    calendar: "https://cal.com/adeelhashmi",
-    resume: "/resume.pdf",
+    github: "https://github.com/BrunoGiugno26",
+    linkedin: "https://www.linkedin.com/in/bruno-giugno-0406ba1a5/",
+    twitter: "#", // Se deja vacío si no tienes cuenta profesional
+    email: "mailto:brunogiugno@gmail.com",
+    calendar: "#", // Dejar '#' si no usas Cal.com para agendar llamadas
+    resume: "/resume.pdf", // Asegúrate de que el archivo CV se llame 'resume.pdf' en la carpeta public
   },
 
-  // Navigation
+  // Navegación (Limpiado, eliminando Blog y FAQ si no los usas)
   navigation: [
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Proyectos", href: "#projects" },
+    { name: "Habilidades", href: "#skills" },
+    { name: "Acerca de Mí", href: "#about" }, // Añadido el enlace directo a la sección "About"
+    { name: "Contacto", href: "#contact" },
   ],
 
-  // Features enabled/disabled
+  // Features (Recomendado: Desactivar los que no vas a usar para limpieza)
   features: {
     visitorCount: true,
-    blog: true,
+    blog: false, // Desactivado
     feedback: true,
-    whatsapp: true,
-    analytics: true,
+    whatsapp: false, // Desactivado
+    analytics: false, // Desactivado
   },
 } as const
 
