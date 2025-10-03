@@ -610,7 +610,7 @@ export default function Home() {
                 {[
                   {
                     icon: Globe,
-                    href: "TU_URL_DE_VERCEL",
+                    href: "https://bruno-giugno-portafolio.vercel.app/",
                     label: "Portafolio",
                   },
                   {
@@ -648,7 +648,6 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Eliminamos el AnalyticsBadge */}
             </div>
 
             <div className="text-sm text-center text-muted-foreground/70">
