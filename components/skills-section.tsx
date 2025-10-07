@@ -18,7 +18,7 @@ const skills = [
   { name: "Prisma / Neon (PostgreSQL)", icon: "🐘", experience: "Autodidacta", category: "Database", proficiency: 25, color: "from-blue-700 to-blue-900" },
   { name: "Stripe / Webhooks", icon: "💳", experience: "Autodidacta", category: "Integration", proficiency: 28, color: "from-purple-500 to-purple-700" },
   { name: "Clerk / Auth0", icon: "🔐", experience: "Autodidacta", category: "Integration", proficiency: 35, color: "from-orange-400 to-orange-600" },
-  { name: "Shadcn / ui", icon: "💅", experience: "Autodidacta", category: "Styling", proficiency: 34, color: "from-gray-300 to-gray-500" },
+  { name: "Shadcn / ui", icon: "🔮", experience: "Autodidacta", category: "Styling", proficiency: 34, color: "from-gray-300 to-gray-500" },
   { name: "Uploadthing / ImageKit", icon: "☁️", experience: "Autodidacta", category: "Integration", proficiency: 50, color: "from-pink-500 to-rose-500" },
 
   // --- Herramientas de Base ---
