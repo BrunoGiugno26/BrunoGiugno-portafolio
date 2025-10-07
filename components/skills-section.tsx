@@ -121,7 +121,7 @@ export function SkillsSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-3 px-2 sm:grid-cols-3 lg:grid-cols-4"
       >
         {filteredSkills.map((skill, index) => (
           <motion.div key={skill.name} variants={itemVariants} className="group">
@@ -146,14 +146,14 @@ export function SkillsSection() {
               </div>
 
               {/* Skill Name */}
-              <h3 className="mb-2 font-semibold leading-tight transition-colors duration-300 text-foreground group-hover:text-primary">
+              <h3 className="mb-2 text-sm font-semibold leading-tight transition-colors duration-300 sm:text-base text-foreground group-hover:text-primary">
                 {skill.name}
               </h3>
 
               {/* Experience Badge */}
               <Badge
                 variant="secondary"
-                className="text-xs transition-all duration-300 bg-muted/50 text-muted-foreground border-border/30 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/30"
+                className="text-[10px] sm:text-xs transition-all duration-300 bg-muted/50 text-muted-foreground border-border/30 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/30 whitespace-nowrap px-1.5"
               >
                 {skill.experience}
               </Badge>
