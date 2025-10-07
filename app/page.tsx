@@ -106,7 +106,7 @@ export default function Home() {
   const handleCloseMenu = () => setIsOpen(false);
 
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-background text-foreground">
+    <div className="min-h-screen overflow-x-hidden transition-colors duration-300 bg-background text-foreground">
       {/* Glass Navigation - BARRA FUNCIONAL Y RESPONSIVA */}
       <nav className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-xl border-border/50">
         <div className="max-w-6xl px-6 py-4 mx-auto">
