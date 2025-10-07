@@ -178,7 +178,7 @@ export function SkillsSection() {
         transition={{ delay: 0.5 }}
         className="pt-8 text-center"
       >
-        <div className="inline-flex items-center gap-6 px-6 py-3 border rounded-full bg-muted/30 border-border/50">
+        <div className="flex flex-wrap justify-center gap-4 px-4 py-3 border rounded-full sm:gap-6 bg-muted/30 border-border/50">
           <div className="text-sm">
             <span className="font-semibold text-primary">{skills.length}</span>
             <span className="ml-1 text-muted-foreground">Tecnologías</span>
