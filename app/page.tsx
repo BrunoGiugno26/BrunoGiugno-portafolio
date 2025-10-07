@@ -530,10 +530,10 @@ export default function Home() {
             className="space-y-6"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">Proyectos Destacados</h2>
+              <h2 className="flex-shrink-0 text-2xl font-bold truncate">Proyectos Destacados</h2>
               <Link
                 href="#contact"
-                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="text-sm transition-colors duration-200 rounded-sm text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background whitespace-nowrap"
               >
                 Ver más →
               </Link>
