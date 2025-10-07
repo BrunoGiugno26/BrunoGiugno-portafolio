@@ -651,8 +651,7 @@ export default function Home() {
             </div>
 
             <div className="text-sm text-center text-muted-foreground/70">
-              © 2025 Bruno Giugno. Basado en el trabajo de Adeel Hashmi. Built
-              with Next.js & Tailwind CSS.
+              © 2025 Bruno Giugno
             </div>
           </motion.footer>
         </div>
