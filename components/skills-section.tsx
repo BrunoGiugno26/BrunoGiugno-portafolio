@@ -126,7 +126,7 @@ export function SkillsSection() {
         {filteredSkills.map((skill, index) => (
           <motion.div key={skill.name} variants={itemVariants} className="group">
             <Card
-              className="relative flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border cursor-default bg-card border-border rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 hover:bg-card/90 hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transform-gpu will-change-transform"
+              className="relative flex flex-col items-center justify-center h-full p-4 text-center transition-all duration-300 border cursor-default bg-card border-border rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 hover:bg-card/90 hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transform-gpu will-change-transform"
               tabIndex={0}
               role="button"
               aria-label={`${skill.name} - ${skill.experience} experience`}
