@@ -73,7 +73,7 @@ export const projects: Project[] = [
       Authentication: ["Clerk"],
       Media: ["Uploadthing", "ImageKit"],
     },
-    gallery: [ /* URLs de capturas de pantalla */ ],
+    gallery: [ /* URLs de capturas de pantalla */],
   },
   {
     id: "2",
@@ -116,7 +116,47 @@ export const projects: Project[] = [
       Servicios: ["Stripe", "NodeMailer"],
       Metodología: ["Metodologías Ágiles", "Pair Programming"],
     },
-    gallery: [ /* URLs de capturas de pantalla */ ],
+    gallery: [ /* URLs de capturas de pantalla */],
   },
-  // ELIMINAR PROYECTOS DE EJEMPLO ADICIONALES (id: "3", etc.)
+  {
+    id: "3",
+    slug: "Banco-Landing-Page",
+    title: "Jano - Banco-Digital-Landing-page",
+    description: "React Landing page moderna hecha con Next JS,Tailwind CSS,Next JS,Framer Motion",
+    longDescription: `Mini proyceto pensado para crear una landig page(SPA) con tematica de un banco digital con un diseño moderno acorde a estos tiempos`,
+    problem: `Inovar en cuanto a buscar metodologias para hacer un diseño creativo y altamente atractivo para los usuarios`,
+    solution: `Implementación de Framer Motion para incursionar en el manejo de animaciones sobre todo para las transicciones de una seccion a otra y uso de Tailwind CSS para los estilos tanto a nivel desktop como responsive. Gestión del estado global en el Frontend (Next.js), Implementando iconos nativos de react.`,
+    role: "Frontend Developer (Enfoque en UI/UX)",
+    duration: "1 Semana",
+    team: "Equipo de 4 Desarrolladores",
+    image: "https://ik.imagekit.io/fefgntjox/logo-jano.png?updatedAt=1760629433610", // Sustituir con URL de tu imagen
+    heroImage: "https://ik.imagekit.io/fefgntjox/logo-jano.png?updatedAt=1760629433610",
+    tags: ["Next.js", "Tailwind", "React", "Framer Motion"],
+    icon: "🏦",
+    featured: true,
+    liveUrl: "https://landing-page-bank-ten.vercel.app/",
+    githubUrl: "https://github.com/BrunoGiugno26/landing-page-bank", // Usar este para el Front
+    metrics: {
+      users: "Trabajo en Equipo",
+      performance: "Una Semana",
+      impact: "Dominio de Next.js/React/Tailwind",
+    },
+    features: [
+      "Diseño moderno y minimalista con enfoque bancario",
+      "Animaciones fluidas implementadas con Framer Motion.",
+      "Diseño totalmente Responsive (móvil, tablet y desktop) con Tailwind CSS.",
+      "Gestión del estado global (Redux/Context API - a especificar).",
+      "Integración de componentes de React e iconos nativos.",
+    ],
+    challenges: [
+      "Lograr un diseño altamente atractivo y creativo que destaque.",
+      "Implementar transiciones de página suaves y funcionales con Framer Motion.",
+      "Asegurar la coherencia visual en todos los breakpoints (responsividad).",
+    ],
+    technologies: {
+      Frontend: ["Next.js", "React", "Redux", "Tailwind CSS"],
+      Metodología: ["Metodologías Ágiles", "Pair Programming"],
+    },
+    gallery: [ /* URLs de capturas de pantalla */],
+  },
 ];

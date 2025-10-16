@@ -1,24 +1,24 @@
-interface Metrics{
-    title:string;
-    value:string;
-    color:string;
+interface Metrics {
+    title: string;
+    value: string;
+    color: string;
 }
 
-interface CaseStudyData{
-    slug:string;
-    title:string;
-    subtitle:string;
-    summary:string
-    problem:string;
-    solution:string;
-    stackDecisions:{title:string;body:string}[];
-    challenges:string[];
-    metrics:Metrics[];
+interface CaseStudyData {
+    slug: string;
+    title: string;
+    subtitle: string;
+    summary: string
+    problem: string;
+    solution: string;
+    stackDecisions: { title: string; body: string }[];
+    challenges: string[];
+    metrics: Metrics[];
     tags: string[];
-    liveUrl:string;
-    githubUrlFront:string;
-    githubUrlBack:string;
-    imageUrl:string;
+    liveUrl: string;
+    githubUrlFront: string;
+    githubUrlBack: string;
+    imageUrl: string;
 }
 
 export const caseStudies: CaseStudyData[] = [
@@ -51,33 +51,61 @@ export const caseStudies: CaseStudyData[] = [
         imageUrl: "https://ik.imagekit.io/fefgntjox/Rents-Cars/untitled-0.png?updatedAt=1758552652106",
     },
     {
-    slug: "lienzo-culinario-ecommerce",
-    title: "Lienzo Culinario - E-commerce de Comida",
-    subtitle: "Proyecto Final de Bootcamp (Equipo) | Next.js, Nest.js & Stripe.",
-    summary: "Plataforma de E-commerce de comida a domicilio, desarrollada en equipo bajo metodologías ágiles. El enfoque principal fue la personalización del menú y la integración completa de funcionalidades de pago y notificaciones.",
-    problem: "Diseñar y desarrollar un E-commerce escalable, capaz de gestionar menús dinámicos y pasarelas de pago, todo bajo un estricto plazo de 3 semanas (Proyecto Final).",
-    solution: "Adopción de un *stack* de microservicios (Next.js Front, Nest.js Back) para permitir el desarrollo paralelo y la implementación de pasarelas de pago y autenticación con servicios externos (Stripe y Auth0).",
-    stackDecisions: [
-        { title: "Arquitectura (Nest.js)", body: "Uso de Nest.js (Node.js/Express) para construir una API robusta y modular, ideal para la gestión del inventario y la escalabilidad del E-commerce. Esto demostró la capacidad de trabajar con frameworks de backend." },
-        { title: "Gestión de Pagos (Stripe)", body: "Integración de la pasarela de pagos Stripe para un flujo de compra seguro y verificación de transacciones. Asegurando una experiencia de usuario fluida desde el carrito hasta la confirmación final." },
-        { title: "Notificaciones Transaccionales", body: "Implementación de **NodeMailer** para automatizar el envío de correos electrónicos de confirmación (confirmaciones de pedido, etc.), vital para la experiencia de usuario post-compra." },
-    ],
-    challenges: [
-        "Planificación y coordinación efectiva en equipo (metodologías ágiles) para cumplir con el deadline de 3 semanas.",
-        "Integración de la gestión de estado global (React) para mantener la consistencia del carrito de compras y los datos de autenticación entre componentes.",
-        "Desarrollo de la arquitectura de componentes reutilizables y un diseño responsivo con Tailwind CSS."
-    ],
-    metrics: [
-        { title: "Stack", value: "Next.js & Nest.js", color: "text-blue-500" },
-        { title: "Focus", value: "Pagos & Auth0", color: "text-red-500" },
-        { title: "Tiempo", value: "Proyecto de 3 Semanas", color: "text-green-500" },
-    ],
-    tags: ["Next.js", "Nest.js", "React", "Cloudinary", "Auth0", "Stripe", "Tailwind CSS", "NodeMailer"],
-    liveUrl: "https://lienzofront.vercel.app/",
-    githubUrlFront: "https://github.com/lienzoculinariog2/lienzofront",
-    githubUrlBack: "https://github.com/lienzoculinariog2/nuevolienzoback-",
-    imageUrl: "https://ik.imagekit.io/fefgntjox/Rents-Cars/Logo-Lienzo.png?updatedAt=1759367121863",
-}
+        slug: "lienzo-culinario-ecommerce",
+        title: "Lienzo Culinario - E-commerce de Comida",
+        subtitle: "Proyecto Final de Bootcamp (Equipo) | Next.js, Nest.js & Stripe.",
+        summary: "Plataforma de E-commerce de comida a domicilio, desarrollada en equipo bajo metodologías ágiles. El enfoque principal fue la personalización del menú y la integración completa de funcionalidades de pago y notificaciones.",
+        problem: "Diseñar y desarrollar un E-commerce escalable, capaz de gestionar menús dinámicos y pasarelas de pago, todo bajo un estricto plazo de 3 semanas (Proyecto Final).",
+        solution: "Adopción de un *stack* de microservicios (Next.js Front, Nest.js Back) para permitir el desarrollo paralelo y la implementación de pasarelas de pago y autenticación con servicios externos (Stripe y Auth0).",
+        stackDecisions: [
+            { title: "Arquitectura (Nest.js)", body: "Uso de Nest.js (Node.js/Express) para construir una API robusta y modular, ideal para la gestión del inventario y la escalabilidad del E-commerce. Esto demostró la capacidad de trabajar con frameworks de backend." },
+            { title: "Gestión de Pagos (Stripe)", body: "Integración de la pasarela de pagos Stripe para un flujo de compra seguro y verificación de transacciones. Asegurando una experiencia de usuario fluida desde el carrito hasta la confirmación final." },
+            { title: "Notificaciones Transaccionales", body: "Implementación de **NodeMailer** para automatizar el envío de correos electrónicos de confirmación (confirmaciones de pedido, etc.), vital para la experiencia de usuario post-compra." },
+        ],
+        challenges: [
+            "Planificación y coordinación efectiva en equipo (metodologías ágiles) para cumplir con el deadline de 3 semanas.",
+            "Integración de la gestión de estado global (React) para mantener la consistencia del carrito de compras y los datos de autenticación entre componentes.",
+            "Desarrollo de la arquitectura de componentes reutilizables y un diseño responsivo con Tailwind CSS."
+        ],
+        metrics: [
+            { title: "Stack", value: "Next.js & Nest.js", color: "text-blue-500" },
+            { title: "Focus", value: "Pagos & Auth0", color: "text-red-500" },
+            { title: "Tiempo", value: "Proyecto de 3 Semanas", color: "text-green-500" },
+        ],
+        tags: ["Next.js", "Nest.js", "React", "Cloudinary", "Auth0", "Stripe", "Tailwind CSS", "NodeMailer"],
+        liveUrl: "https://lienzofront.vercel.app/",
+        githubUrlFront: "https://github.com/lienzoculinariog2/lienzofront",
+        githubUrlBack: "https://github.com/lienzoculinariog2/nuevolienzoback-",
+        imageUrl: "https://ik.imagekit.io/fefgntjox/Rents-Cars/Logo-Lienzo.png?updatedAt=1759367121863",
+    },
+    {
+        slug: "Banco-Landing-Page",
+        title: "Jano - Banco-Digital-Landing-page",
+        subtitle: "Mini Proyecto Individual (SPA) | Next.js, Tailwind CSS & Framer Motion.",
+        summary: "Mini proyecto enfocado en la creación de una Landing Page (SPA) para un banco digital, utilizando un diseño moderno y minimalista. El foco principal fue la implementación de animaciones fluidas para mejorar la experiencia de usuario (UI/UX).",
+        problem: "Innovar en la creación de un diseño *landing page* altamente creativo, moderno y visualmente atractivo que destacara en el sector bancario digital.",
+        solution: "Implementación de la librería Framer Motion para gestionar animaciones y transiciones suaves entre secciones. Uso de Tailwind CSS para un sistema de estilos rápido y totalmente responsivo (desktop y móvil).",
+        stackDecisions: [
+            { title: "Animaciones (Framer Motion)", body: "Uso de Framer Motion para dotar a la SPA de transiciones y efectos de movimiento fluidos, crucial para la percepción de modernidad y calidad en el UI/UX." },
+            { title: "Estilizado (Tailwind CSS)", body: "Adopción de Tailwind CSS para el desarrollo rápido y modular de estilos, garantizando la responsividad completa del diseño en todos los *breakpoints*." },
+            { title: "Arquitectura (Next.js)", body: "Elección de Next.js (React) para una aplicación de una sola página (SPA) performante, aprovechando sus capacidades de optimización y estructura de código." },
+        ],
+        challenges: [
+            "Lograr un diseño altamente atractivo y creativo que destaque, siguiendo las tendencias modernas de bancos digitales.",
+            "Implementar transiciones y animaciones funcionales con Framer Motion sin comprometer el rendimiento de la aplicación.",
+            "Asegurar la coherencia visual en todos los dispositivos mediante una correcta configuración de Tailwind CSS para la responsividad.",
+        ],
+        metrics: [
+            { title: "Stack", value: "Next.js & Framer Motion", color: "text-blue-500" },
+            { title: "Focus", value: "UI/UX & Animaciones", color: "text-red-500" },
+            { title: "Tiempo", value: "Proyecto de 1 Semana", color: "text-green-500" },
+        ],
+        tags: ["Next.js", "Tailwind CSS", "React", "Framer Motion", "SPA", "UI/UX"],
+        liveUrl: "https://landing-page-bank-ten.vercel.app/",
+        githubUrlFront: "https://github.com/BrunoGiugno26/landing-page-bank",
+        githubUrlBack: "", // No aplica para este proyecto de Landing Page puramente Frontend
+        imageUrl: "https://ik.imagekit.io/fefgntjox/logo-jano.png?updatedAt=1760629433610",
+    }
 ];
 
 // Función para obtener el estudio de caso basado en el slug

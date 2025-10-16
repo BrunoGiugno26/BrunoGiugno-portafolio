@@ -88,7 +88,34 @@ const projects = [
       impact: "Entrega del proyecto en 3 semanas",
     },
   },
-];
+  
+  {
+    id: "3",
+    slug: "Banco-Landing-Page",
+    title: "Jano - Banco-Digital-Landing-page",
+    description:
+      "Landing page moderna de banco digital (SPA) desarrollada con Next.js, Tailwind CSS y animaciones con Framer Motion.",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "Framer Motion",
+      "UI/UX",
+    ],
+    imageUrl:
+      "https://ik.imagekit.io/fefgntjox/logo-jano.png?updatedAt=1760629433610", // Imagen principal
+    featured: true,
+    liveUrl: "https://landing-page-bank-ten.vercel.app/",
+    githubUrl: "https://github.com/BrunoGiugno26/landing-page-bank",
+    metrics: {
+      users: "Frontend Developer (UI/UX)",
+      performance: "1 Semana",
+      impact: "Dominio de Next.js/React/Tailwind",
+    },
+    // Nota: El código original no tiene 'longDescription', 'problem', 'solution', etc.,
+    // pero mantengo el resto de las propiedades clave en el nuevo formato.
+  },
+]
 
 const navigation = [
   { name: "Proyectos", href: "#projects" },

@@ -159,7 +159,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 aria-label={`View live demo of ${project.title}`}
               >
                 <ExternalLink className="w-3 h-3 mr-2" />
-                Live Demo
+                Demo
               </Button>
             )}
 
@@ -199,7 +199,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 className="w-full transition-all duration-200 bg-muted/50 hover:bg-muted text-foreground border-border/50 hover:border-border focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background group/btn"
                 aria-label={`View case study for ${project.title}`}
               >
-                Case Study
+                Caso de análisis
                 <ArrowRight className="w-3 h-3 ml-2 transition-transform group-hover/btn:translate-x-1" />
               </Button>
             </Link>
