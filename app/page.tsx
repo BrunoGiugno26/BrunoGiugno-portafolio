@@ -673,7 +673,7 @@ export default function Home() {
             </div>
 
             <div className="text-sm text-center text-muted-foreground/70">
-              © 2025 Bruno Giugno
+              © 2026 Bruno Giugno
             </div>
           </motion.footer>
         </div>
