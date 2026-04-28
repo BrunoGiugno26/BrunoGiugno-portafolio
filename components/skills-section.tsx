@@ -185,8 +185,8 @@ export function SkillsSection() {
           </div>
           <div className="w-px h-4 bg-border/30" />
           <div className="text-sm">
-            <span className="font-semibold text-primary">6+</span> 
-            <span className="ml-1 text-muted-foreground">Meses de Experiencia</span> 
+            <span className="font-semibold text-primary">1</span> 
+            <span className="ml-1 text-muted-foreground">Año de Experiencia</span> 
           </div>
           <div className="w-px h-4 bg-border/30" />
           <div className="text-sm">
