@@ -370,8 +370,8 @@ export default function Home() {
 
                   <div className="flex gap-2">
                     <a
-                      href="/Bruno Giugno - CV - Full Stack Developer.pdf"
-                      download={"Bruno Giugno - CV - Full Stack Developer.pdf"}
+                      href="/_Bruno Giugno - CV - Full Stack Developer-2.pdf"
+                      download={"_Bruno Giugno - CV - Full Stack Developer-2.pdf"}
                     >
                       <Button
                         variant="outline"
