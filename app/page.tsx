@@ -497,52 +497,7 @@ export default function Home() {
           </motion.section>
 
           {/* Work Experience - Corregido a tu experiencia real */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-6"
-          >
-            <h2 className="text-2xl font-bold">Experiencia Laboral</h2>
-            <div className="space-y-4">
-              {workExperience.map((job, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 overflow-hidden text-xl transition-all duration-300 border rounded-full bg-muted/50 hover:bg-muted border-border/50 hover:border-border">
-                    {/* IMPLEMENTACIÓN DE LA IMAGEN DE LA EMPRESA */}
-                    <Image
-                      src={job.logo} // Usamos job.logo como la URL
-                      alt={`${job.company} logo`}
-                      width={48} // w-12 h-12 son 48px
-                      height={48}
-                      className="object-cover w-full h-full" // Asegura que el logo llene el círculo
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-foreground">
-                        {job.company}
-                      </h3>
-                      <span className="flex-shrink-0 text-sm text-muted-foreground">
-                        {job.duration}
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{job.role}</p>
-                    <p className="mt-1 text-sm text-muted-foreground/70">
-                      {job.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
+          
 
           {/* Skills Section - Llenada en components/skills-section.tsx */}
           <section id="skills">
