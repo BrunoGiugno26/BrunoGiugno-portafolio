@@ -147,7 +147,7 @@ export default function Home() {
               >
                 {/* 1. IMAGEN DEL LOGO */}
                 <Image
-                  src={"/icon.png"}
+                  src={"/BG-Freelance-2.png"}
                   alt="Logo BGProyectos"
                   width={64}
                   height={64}
