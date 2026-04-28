@@ -88,20 +88,14 @@ const projects = [
       impact: "Entrega del proyecto en 3 semanas",
     },
   },
-  
+
   {
     id: "3",
     slug: "Banco-Landing-Page",
     title: "Jano - Banco-Digital-Landing-page",
     description:
       "Landing page moderna de banco digital (SPA) desarrollada con Next.js, Tailwind CSS y animaciones con Framer Motion.",
-    tags: [
-      "Next.js",
-      "Tailwind CSS",
-      "React",
-      "Framer Motion",
-      "UI/UX",
-    ],
+    tags: ["Next.js", "Tailwind CSS", "React", "Framer Motion", "UI/UX"],
     imageUrl:
       "https://ik.imagekit.io/fefgntjox/logo-jano.png?updatedAt=1760629433610", // Imagen principal
     featured: true,
@@ -115,7 +109,7 @@ const projects = [
     // Nota: El código original no tiene 'longDescription', 'problem', 'solution', etc.,
     // pero mantengo el resto de las propiedades clave en el nuevo formato.
   },
-]
+];
 
 const navigation = [
   { name: "Proyectos", href: "#projects" },
@@ -463,33 +457,41 @@ export default function Home() {
             </h2>
             <div className="space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                Soy un Desarrollador Full Stack Junior con una pasión marcada
-                por el Frontend. Mi objetivo principal es transformar requisitos
-                de negocio complejos en experiencias de usuario intuitivas y
-                visualmente atractivas. Me especializo en el ecosistema moderno
-                de JavaScript, dominando tecnologías como **React**,
-                **Next.js**, y **TypeScript**.
+                Soy un Desarrollador Full Stack especializado en el ecosistema
+                moderno de JavaScript, con un enfoque principal en el Frontend y
+                arquitecturas escalables. Mi objetivo principal es transformar
+                necesidades de negocio complejas en soluciones digitales
+                eficientes, combinando una visión técnica sólida con una
+                perspectiva clara sobre la lógica de procesos comerciales y la
+                experiencia de usuario.
               </p>
+
               <p>
-                Adquirí un sólido conocimiento Full Stack a través del bootcamp
-                intensivo de Henry, incluyendo el manejo de Express, PostgreSQL
-                y MongoDB. Mi enfoque se centra en la construcción de sistemas
-                transaccionales robustos (como mi proyecto de reservas con
-                Stripe y Prisma), demostrando un fuerte compromiso con la
-                integridad de los datos y la escalabilidad.
+                Actualmente me desempeño como Desarrollador Freelance, ayudando
+                a empresas a digitalizar su operación mediante herramientas a
+                medida. Entre mis proyectos destacados, lidero el desarrollo
+                integral de un sistema ERP y E-commerce para una distribuidora
+                mayorista, implementando soluciones robustas con Next.js (App
+                Router), Strapi y PostgreSQL para la gestión de inventarios y
+                flujos transaccionales.
               </p>
+
               <p>
-                Mi trayectoria me ha enseñado a ser autodidacta, proactivo y
-                resiliente, habilidades que aplico a diario para resolver
-                problemas en el desarrollo web. Valoro el éxito basado en la
-                comunicación y la colaboración grupal, considerándolas
-                fundamentales para el éxito de cualquier proyecto de software.
+                Mi stack tecnológico se centra en tecnologías de vanguardia como
+                React, TypeScript, Tailwind CSS y Zustand, complementado con el
+                manejo de Prisma, Clerk y pasarelas de pago como Mercado Pago y
+                Stripe. Tengo un fuerte compromiso con la integridad de los
+                datos, la seguridad y la optimización de flujos de trabajo
+                mediante la automatización e integración de servicios externos.
               </p>
+
               <p>
-                Actualmente, busco mi primera oportunidad profesional para
-                crecer en un equipo dinámico. Estoy comprometido a aportar mi
-                energía y dedicación, con la convicción de que con esfuerzo y
-                tiempo se pueden lograr grandes resultados.
+                Me destaco por mi iniciativa técnica, capacidad autodidacta y
+                una mentalidad proactiva para resolver problemas complejos.
+                Valoro la comunicación clara y la colaboración estratégica,
+                buscando siempre aportar valor real a través del desarrollo de
+                productos digitales que impulsen el crecimiento y la eficiencia
+                de cada proyecto.
               </p>
             </div>
           </motion.section>
@@ -557,8 +559,9 @@ export default function Home() {
             className="space-y-6"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-center ">Proyectos Destacados</h2>
-        
+              <h2 className="text-2xl font-bold text-center ">
+                Proyectos Destacados
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
               {projects.map((project, index) => (
@@ -669,7 +672,6 @@ export default function Home() {
                   </Button>
                 ))}
               </div>
-
             </div>
 
             <div className="text-sm text-center text-muted-foreground/70">
@@ -678,7 +680,6 @@ export default function Home() {
           </motion.footer>
         </div>
       </main>
-
     </div>
   );
 }
