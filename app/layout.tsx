@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   description:
   "Desarrollador Full Stack especializado en Next.js, React, y TypeScript. Experiencia en la construcción de sistemas transaccionales seguros (Stripe, Prisma) y gestión de datos SQL.",
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: "/BG-Freelance-2.png",
+    shortcut: "/BG-Freelance-2.png",
+    apple: "/BG-Freelance-2.png",
   },
   
   // --- Palabras Clave (SEO) ---
